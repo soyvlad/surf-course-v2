@@ -84,7 +84,7 @@ class _ContentWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
-          childAspectRatio: 0.80,
+          childAspectRatio: 0.74,
           mainAxisSpacing: 40,
           crossAxisSpacing: 22),
       itemCount: data.length,
@@ -122,6 +122,7 @@ class _ColorWidget extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 8),
             Text(colorData.name, style: theme.bodySmall),
             Text(colorData.value, style: theme.bodySmall),
           ],

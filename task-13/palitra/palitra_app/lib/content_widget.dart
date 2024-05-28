@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:palitra_app/assets/text_strings.dart';
 import 'package:palitra_app/detaled_color_screen.dart';
 import 'package:palitra_app/entity/color_entity.dart';
 import 'package:palitra_app/utils/extensions/string_hex.dart';
@@ -39,7 +40,7 @@ class _ColorWidget extends StatelessWidget {
     return Center(
       child: GestureDetector(
         onTap: () => onTap(context),
-        onLongPress: onLongPress,
+        onLongPress: () => onLongPress(context),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
@@ -66,7 +67,10 @@ class _ColorWidget extends StatelessWidget {
         builder: (_) => DetailedColorScreen(colorData: colorData)));
   }
 
-  void onLongPress() async {
+  void onLongPress(BuildContext context) async {
     await Clipboard.setData(ClipboardData(text: colorData.value));
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      content: Text(AppTexts.copied),
+    ));
   }
 }

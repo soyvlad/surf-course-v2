@@ -9,17 +9,17 @@ import 'package:palitra_app/utils/extensions/string_hex.dart';
 class DetailedColorScreen extends StatelessWidget {
   final ColorEntity colorData;
 
-  const DetailedColorScreen({super.key, required this.colorData}); 
+  const DetailedColorScreen({super.key, required this.colorData});
 
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.sizeOf(context).height;
     final colorBoxHeight = height / 2;
     final preferredSizeHeight = colorBoxHeight - kToolbarHeight;
-   
+
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: kToolbarHeight,
+        toolbarHeight: 28,
         foregroundColor: Colors.white,
         flexibleSpace: SizedBox(
           width: double.infinity,
@@ -41,7 +41,10 @@ class DetailedColorScreen extends StatelessWidget {
           children: [
             Text(
               colorData.name,
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineMedium
+                  ?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
             _ShadowBoxWidget(
@@ -102,7 +105,7 @@ class _ShadowBoxWidget extends StatelessWidget {
           BoxShadow(
             color: Colors.grey.shade100,
             blurRadius: 12,
-            offset: const Offset(0, 12),
+            offset: const Offset(0, 18),
           ),
         ],
       ),

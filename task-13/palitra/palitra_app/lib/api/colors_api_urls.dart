@@ -1,3 +1,3 @@
 abstract class ColorsApiUrls {
-  static const colors = 'assets/colors_data.json';
+  static const colors = 'assets/json/colors_data.json';
 }
