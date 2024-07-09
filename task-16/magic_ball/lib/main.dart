@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:magic_ball/assets/app_theme_data.dart';
-import 'package:magic_ball/presentation/screens/home_screen.dart';
+import 'package:magic_ball/presentation/home_screen.dart';
 
 void main() {
   runApp(

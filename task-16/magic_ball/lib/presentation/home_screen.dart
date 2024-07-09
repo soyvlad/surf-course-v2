@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:magic_ball/assets/app_colors.dart';
 import 'package:magic_ball/assets/app_images.dart';
 import 'package:magic_ball/assets/app_strings.dart';
-import 'package:magic_ball/presentation/screens/twinkles.dart';
+
+import 'package:magic_ball/presentation/twinkles.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+ const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  // ignore: library_private_types_in_public_api
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -91,29 +93,28 @@ class _HomeScreenState extends State<HomeScreen> {
 // Loading and response animation
 class _TextPrediction extends StatelessWidget {
   const _TextPrediction({
-    required bool isLoading,
-    required String prediction,
-  })  : _isLoading = isLoading,
-        _prediction = prediction;
+    required this.isLoading,
+    required this.prediction,
+  });
 
-  final bool _isLoading;
-  final String _prediction;
+  final bool isLoading;
+  final String prediction;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
       color: Colors.black.withOpacity(0.5),
-      child: _isLoading
+      child: isLoading
           ? const Twinkles()
           : Text(
-              _prediction,
+              prediction,
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: _prediction == AppStrings.error
-                        ? AppColors.white
-                        : AppColors.white,
-                  ),
+              style:  Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: prediction == AppStrings.error
+                    ? AppColors.white
+                    : AppColors.white,
+              ),
             ),
     );
   }
@@ -122,15 +123,15 @@ class _TextPrediction extends StatelessWidget {
 // Text fading animation
 class _TextOpacity extends StatelessWidget {
   const _TextOpacity({
-    required bool isMagic,
-  }) : _isMagic = isMagic;
+    required this.isMagic,
+  });
 
-  final bool _isMagic;
+  final bool isMagic;
 
   @override
   Widget build(BuildContext context) {
     return AnimatedOpacity(
-      opacity: _isMagic ? 0.0 : 1.0,
+      opacity: isMagic ? 0.0 : 1.0,
       duration: const Duration(milliseconds: 300),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -150,10 +151,10 @@ class _TextOpacity extends StatelessWidget {
 // Sphere's zooming in and out
 class _BallAnimated extends StatelessWidget {
   const _BallAnimated({
-    required double scale,
-  }) : _scale = scale;
+    required this.scale,
+  });
 
-  final double _scale;
+  final double scale;
 
   @override
   Widget build(BuildContext context) {
@@ -161,7 +162,7 @@ class _BallAnimated extends StatelessWidget {
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
       transformAlignment: Alignment.center,
-      transform: Matrix4.identity()..scale(_scale),
+      transform: Matrix4.identity()..scale(scale),
       child: Image.asset(AppImages.ball),
     );
   }
