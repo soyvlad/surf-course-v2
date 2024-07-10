@@ -1,0 +1,28 @@
+{
+  "profilePageAppBar": "Профиль",
+  "save": "Сохранить",
+  "edit": "Изменить",
+  "profilePageMyRegards": "Мои награды",
+  "profilePageNameLabel": "Имя",
+  "profilePageEmailLabel": "E-mail",
+  "profilePageDateLabel": "Дата рождения",
+  "profilePageTeamLabel": "Команда",
+  "profilePagePositionLabel": "Позиция",
+  "profilePageThemeLabel": "Тема оформления",
+  "logOut": "Выйти",
+  "themModeSystem": "Системная",
+  "themModeLight": "Светлая",
+  "themModeDark": "Тёмная",
+  "colorSchemeLabel": "Цветовая схема",
+  "done": "Готово",
+  "schemeNumber": "Схема {number}",
+  "@schemeNumber": {
+    "description": "Number of color scheme",
+    "placeholders": {
+      "number": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  }
+}
