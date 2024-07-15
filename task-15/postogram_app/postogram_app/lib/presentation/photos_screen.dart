@@ -19,6 +19,8 @@ class PhotosScreen extends StatefulWidget {
 
 class _PhotosScreenState extends State<PhotosScreen> {
   final screenState = UnionStateNotifier<List<PhotoEntity>>.loading();
+  
+
 
   @override
   void initState() {

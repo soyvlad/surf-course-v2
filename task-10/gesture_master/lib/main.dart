@@ -1,9 +1,5 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +18,7 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +33,12 @@ class HomePage extends StatelessWidget {
       style: TextStyle(fontFamily: AutofillHints.organizationName, fontSize: 24,color: Colors.white)
       )
       ),
-      body: Center(child: MyStackWidget(),),
+      body: const Center(child: MyStackWidget(),),
       );
   }
 }
 class MyStackWidget extends StatefulWidget {
-  MyStackWidget ({super.key});
+  const MyStackWidget ({super.key});
   @override
   _MyStackWidgetState createState() => _MyStackWidgetState();
 }
